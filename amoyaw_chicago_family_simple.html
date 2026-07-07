@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Amoyaw Family Vacation 2026 · Chicago</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&amp;family=Space+Grotesk:wght@400;500;700&amp;family=Karla:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --lake-deep:#0B3954;
+    --lake-mid:#146B8F;
+    --sky-wash:#EDF5F8;
+    --sun-gold:#F5B841;
+    --sand:#FBF4E8;
+    --coral:#E4572E;
+    --ink:#122A38;
+    --d1:#F5B841; /* gold line — arrival */
+    --d2:#146B8F; /* lake line — landmarks */
+    --d3:#E4572E; /* sunset line — beach + fireworks */
+    --d4:#3E8E5A; /* park line — zoo */
+    --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} *{animation:none!important;transition:none!important}}
+  body{font-family:'Karla',sans-serif;background:var(--sky-wash);color:var(--ink);line-height:1.55}
+  a{color:var(--lake-mid)}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--sun-gold);outline-offset:2px}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;color:#fff;background:var(--lake-deep)}
+  .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+  .hero .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,57,84,.15) 0%,rgba(11,57,84,.55) 55%,rgba(11,57,84,.92) 100%)}
+  .hero-inner{position:relative;width:min(1060px,92%);margin:0 auto;padding:120px 0 56px}
+  .eyebrow{font-family:'Space Grotesk',sans-serif;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--sun-gold);margin-bottom:14px}
+  h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.6rem,7.5vw,5.2rem);line-height:.98;letter-spacing:-.01em}
+  h1 .accent{color:var(--sun-gold)}
+  .hero-sub{margin-top:18px;max-width:560px;font-size:1.05rem;color:#DCEAF1}
+  .hero-facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .fact{font-family:'Space Grotesk',sans-serif;font-size:.82rem;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:7px 14px;border-radius:999px}
+  .fact strong{color:var(--sun-gold)}
+
+  /* ---------- DAY NAV (L-line style) ---------- */
+  .daynav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #D8E4EA;box-shadow:0 2px 10px rgba(11,57,84,.06)}
+  .daynav-inner{width:min(1060px,92%);margin:0 auto;display:flex;gap:6px;overflow-x:auto;padding:10px 0}
+  .daynav a{flex:0 0 auto;display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);font-family:'Space Grotesk',sans-serif;font-size:.85rem;font-weight:500;padding:8px 14px;border-radius:999px;border:1px solid #E2ECF1;white-space:nowrap}
+  .daynav a:hover{background:var(--sky-wash)}
+  .dot{width:12px;height:12px;border-radius:50%;flex:0 0 auto}
+
+  /* ---------- SECTIONS ---------- */
+  .wrap{width:min(1060px,92%);margin:0 auto}
+  section.day{padding:64px 0 22px}
+  .day-head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:8px}
+  .day-tag{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;padding:6px 14px;border-radius:6px}
+  h2{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(1.7rem,4vw,2.5rem)}
+  .day-sub{color:#4A6273;margin:6px 0 30px;max-width:640px}
+
+  /* ---------- ROUTE TIMELINE ---------- */
+  .route{position:relative;padding-left:34px}
+  .route::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:6px;border-radius:3px;background:var(--line,#ccc)}
+  .stop{position:relative;margin-bottom:14px}
+  .stop::before{content:"";position:absolute;left:-31px;top:26px;width:18px;height:18px;border-radius:50%;background:#fff;border:5px solid var(--line,#ccc);box-shadow:0 0 0 3px #fff}
+  .commute{position:relative;font-family:'Space Grotesk',sans-serif;font-size:.78rem;color:#5B7484;padding:8px 0 18px 6px}
+  .commute::before{content:"↓";margin-right:8px;color:var(--line)}
+
+  .card{background:#fff;border:1px solid #E2ECF1;border-radius:var(--radius);overflow:hidden;display:grid;grid-template-columns:200px 1fr;box-shadow:0 3px 14px rgba(11,57,84,.05)}
+  .card .photo{position:relative;min-height:150px}
+  .card .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .card .body{padding:18px 20px 16px}
+  .time{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.1em;color:#fff;background:var(--line);display:inline-block;padding:3px 10px;border-radius:5px;margin-bottom:8px}
+  h3{font-family:'Fraunces',serif;font-weight:700;font-size:1.25rem;margin-bottom:4px}
+  h3 a{color:var(--ink);text-decoration:none;border-bottom:2px solid var(--sun-gold)}
+  h3 a:hover{color:var(--lake-mid)}
+  .addr{font-size:.85rem;margin-bottom:8px}
+  .addr a{color:#5B7484;text-decoration:none}
+  .addr a:hover{text-decoration:underline;color:var(--lake-mid)}
+  .desc{font-size:.94rem;color:#37505F}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .badge{font-family:'Space Grotesk',sans-serif;font-size:.74rem;font-weight:500;padding:4px 11px;border-radius:999px;border:1px solid #D8E4EA;background:var(--sky-wash)}
+  .badge.free{background:#E4F3EA;border-color:#BBDGCB;border-color:#BBDECB;color:#1F6B3E;font-weight:700}
+  .badge.paid{background:#FDF2DC;border-color:#F1DCAE;color:#8A5A00;font-weight:700}
+  .badge.book{background:var(--lake-deep);color:#fff;border-color:var(--lake-deep)}
+  .badge.book a{color:#fff;text-decoration:none}
+
+  /* ---------- BUDGET ---------- */
+  .panel{background:#fff;border:1px solid #E2ECF1;border-radius:var(--radius);padding:30px;margin:26px 0;box-shadow:0 3px 14px rgba(11,57,84,.05)}
+  .panel h2{margin-bottom:6px}
+  .panel p.lead{color:#4A6273;margin-bottom:20px}
+  table{width:100%;border-collapse:collapse;font-size:.93rem}
+  th{font-family:'Space Grotesk',sans-serif;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;text-align:left;color:#5B7484;padding:10px 12px;border-bottom:2px solid var(--lake-deep)}
+  td{padding:10px 12px;border-bottom:1px solid #EAF1F5}
+  td.num{font-family:'Space Grotesk',sans-serif;font-weight:500;white-space:nowrap}
+  tr.total td{font-weight:700;border-bottom:none;background:var(--sand)}
+  .ok{color:#1F6B3E;font-weight:700}
+
+  /* ---------- TIPS ---------- */
+  .tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:20px}
+  .tip{background:#fff;border:1px solid #E2ECF1;border-radius:var(--radius);padding:20px}
+  .tip h4{font-family:'Space Grotesk',sans-serif;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lake-mid);margin-bottom:8px}
+  .tip p{font-size:.9rem;color:#37505F}
+  .tip a{font-weight:700}
+
+  footer{text-align:center;padding:44px 20px 60px;color:#5B7484;font-size:.85rem}
+  footer .fam{font-family:'Fraunces',serif;font-size:1.15rem;color:var(--lake-deep);font-weight:700;margin-bottom:6px}
+
+  @media (max-width:640px){
+    .card{grid-template-columns:1fr}
+    .card .photo{min-height:170px}
+    .hero-inner{padding:96px 0 44px}
+    .route{padding-left:28px}
+    .stop::before{left:-27px;width:15px;height:15px;border-width:4px}
+    .route::before{left:9px;width:5px}
+    .panel{padding:20px 16px}
+  }
+
+  img{display:block;background:#D8E4EA}
+  .photo img{transition:transform .35s ease}
+  .card:hover .photo img{transform:scale(1.035)}
+
+  .desc{max-width:700px}
+  .hero{min-height:64vh}
+  .hero-sub{font-size:1rem;max-width:680px}
+  section.day{padding-top:48px}
+</style>
+</head>
+<body>
+<!-- ================= HERO ================= -->
+<header class="hero">
+<img alt="View over the Chicago skyline and Lake Michigan from the 360 CHICAGO observation deck" class="bg" data-fallback="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22900%22%20height%3D%22650%22%20viewBox%3D%220%200%20900%20650%22%20role%3D%22img%22%20aria-label%3D%22Chicago%20skyline%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%230B3954%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.58%22%20stop-color%3D%22%23146B8F%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23EDF5F8%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22sun%22%20cx%3D%2275%25%22%20cy%3D%2218%25%22%20r%3D%2245%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220.55%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%20%20%3Cfilter%20id%3D%22shadow%22%20x%3D%22-20%25%22%20y%3D%22-20%25%22%20width%3D%22140%25%22%20height%3D%22140%25%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%220%22%20dy%3D%2210%22%20stdDeviation%3D%2214%22%20flood-color%3D%22%23000000%22%20flood-opacity%3D%220.22%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23g%29%22/%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23sun%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20470%20C150%20420%20260%20525%20420%20470%20S690%20375%20900%20455%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20535%20C170%20490%20285%20585%20465%20525%20S725%20455%20900%20520%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23000000%22%20opacity%3D%220.14%22/%3E%0A%20%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22125%22%20r%3D%2290%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cg%20filter%3D%22url%28%23shadow%29%22%3E%0A%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%22355%22%20width%3D%22728%22%20height%3D%22170%22%20rx%3D%2228%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.94%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22165%22%20text-anchor%3D%22middle%22%20font-size%3D%2296%22%20font-family%3D%22Arial%2C%20sans-serif%22%3E%F0%9F%8C%86%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22423%22%20text-anchor%3D%22middle%22%20font-size%3D%2244%22%20font-family%3D%22Georgia%2C%20serif%22%20font-weight%3D%22700%22%20fill%3D%22%23122A38%22%3EChicago%20skyline%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22470%22%20text-anchor%3D%22middle%22%20font-size%3D%2224%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%2337505F%22%3ELake%20Michigan%20views%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22558%22%20text-anchor%3D%22middle%22%20font-size%3D%2218%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.88%22%3EAmoyaw%20Family%20Vacation%202026%3C/text%3E%0A%3C/svg%3E" decoding="async" onerror="this.onerror=null;this.src=this.dataset.fallback;" referrerpolicy="no-referrer" src="https://source.unsplash.com/1600x1000/?chicago-skyline,lake-michigan"/>
+<div class="scrim"></div>
+<div class="hero-inner">
+<p class="eyebrow">July 13 – 16 · First time in the Windy City</p>
+<h1>Amoyaw Family<br/>Vacation <span class="accent">2026</span></h1>
+<p class="hero-sub">Four days in Chicago: skyline views, a river cruise, beach time, fireworks, the zoo, and food from Thai, Peruvian, Cantonese, Korean, and Indian spots.</p>
+<div class="hero-facts">
+<span class="fact">Crew of <strong>5</strong></span>
+<span class="fact">Activities under <strong>$40</strong>/person</span>
+<span class="fact">Home base: <strong>Belmont Cragin</strong></span>
+<span class="fact">3 free landmark days + <strong>free fireworks</strong></span>
+</div>
+</div>
+</header>
+<!-- ================= DAY NAV ================= -->
+<nav aria-label="Jump to day" class="daynav">
+<div class="daynav-inner">
+<a href="#day1"><span class="dot" style="background:var(--d1)"></span>Day 1 · Arrival + 360</a>
+<a href="#day2"><span class="dot" style="background:var(--d2)"></span>Day 2 · Landmarks + Cruise</a>
+<a href="#day3"><span class="dot" style="background:var(--d3)"></span>Day 3 · Beach + Fireworks</a>
+<a href="#day4"><span class="dot" style="background:var(--d4)"></span>Day 4 · Zoo + Farewell</a>
+<a href="#budget"><span class="dot" style="background:var(--lake-deep)"></span>Budget</a>
+<a href="#tips"><span class="dot" style="background:#8A5A00"></span>Tips</a>
+</div>
+</nav>
+<!-- ================= DAY 1 ================= -->
+<section class="day wrap" id="day1" style="--line:var(--d1)">
+<div class="day-head">
+<span class="day-tag" style="background:var(--d1);color:#5A3E00">Day 1 · Mon Jul 13</span>
+<h2>Arrival + 360 CHICAGO</h2>
+</div>
+<p class="day-sub">Check in, go downtown for 360 CHICAGO, then dinner and a short Magnificent Mile walk.</p>
+<div class="route">
+<div class="stop">
+<div class="card">
+<div class="photo"><img alt="Downtown Chicago along the river" data-fallback="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22900%22%20height%3D%22650%22%20viewBox%3D%220%200%20900%20650%22%20role%3D%22img%22%20aria-label%3D%22Downtown%20Chicago%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%230B3954%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.58%22%20stop-color%3D%22%23146B8F%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23EDF5F8%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22sun%22%20cx%3D%2275%25%22%20cy%3D%2218%25%22%20r%3D%2245%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220.55%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%20%20%3Cfilter%20id%3D%22shadow%22%20x%3D%22-20%25%22%20y%3D%22-20%25%22%20width%3D%22140%25%22%20height%3D%22140%25%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%220%22%20dy%3D%2210%22%20stdDeviation%3D%2214%22%20flood-color%3D%22%23000000%22%20flood-opacity%3D%220.22%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23g%29%22/%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23sun%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20470%20C150%20420%20260%20525%20420%20470%20S690%20375%20900%20455%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20535%20C170%20490%20285%20585%20465%20525%20S725%20455%20900%20520%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23000000%22%20opacity%3D%220.14%22/%3E%0A%20%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22125%22%20r%3D%2290%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cg%20filter%3D%22url%28%23shadow%29%22%3E%0A%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%22355%22%20width%3D%22728%22%20height%3D%22170%22%20rx%3D%2228%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.94%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22165%22%20text-anchor%3D%22middle%22%20font-size%3D%2296%22%20font-family%3D%22Arial%2C%20sans-serif%22%3E%F0%9F%8F%99%EF%B8%8F%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22423%22%20text-anchor%3D%22middle%22%20font-size%3D%2244%22%20font-family%3D%22Georgia%2C%20serif%22%20font-weight%3D%22700%22%20fill%3D%22%23122A38%22%3EDowntown%20Chicago%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22470%22%20text-anchor%3D%22middle%22%20font-size%3D%2224%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%2337505F%22%3EArrival%20day%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22558%22%20text-anchor%3D%22middle%22%20font-size%3D%2218%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.88%22%3EAmoyaw%20Family%20Vacation%202026%3C/text%3E%0A%3C/svg%3E" decoding="async" loading="lazy" onerror="this.onerror=null;this.src=this.dataset.fallback;" referrerpolicy="no-referrer" src="https://source.unsplash.com/900x650/?downtown-chicago,river"/></div>
+<div class="body">
+<span class="time">4:00 PM</span>
+<h3>Check in at the Airbnb</h3>
+<p class="addr"><a href="https://www.google.com/maps/search/?api=1&amp;query=5612+W+Grand+Ave+Chicago+IL+60639" rel="noopener" target="_blank">📍 5612 W Grand Ave, Chicago, IL 60639</a></p>
+<p class="desc">Check in and drop off bags. Bring water, chargers, and anything needed for the evening.</p>
+<div class="meta"><span class="badge">15 min turnaround</span></div>
+</div>
+</div>
+</div>
+<p class="commute">25–35 min drive. Pre-book parking if driving downtown.</p>
+<div class="stop">
+<div class="card">
+<div class="photo"><img alt="360 CHICAGO observation deck view" data-fallback="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22900%22%20height%3D%22650%22%20viewBox%3D%220%200%20900%20650%22%20role%3D%22img%22%20aria-label%3D%22360%20CHICAGO%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%237A4D00%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.58%22%20stop-color%3D%22%23F5B841%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23FBF4E8%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22sun%22%20cx%3D%2275%25%22%20cy%3D%2218%25%22%20r%3D%2245%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220.55%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%20%20%3Cfilter%20id%3D%22shadow%22%20x%3D%22-20%25%22%20y%3D%22-20%25%22%20width%3D%22140%25%22%20height%3D%22140%25%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%220%22%20dy%3D%2210%22%20stdDeviation%3D%2214%22%20flood-color%3D%22%23000000%22%20flood-opacity%3D%220.22%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23g%29%22/%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23sun%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20470%20C150%20420%20260%20525%20420%20470%20S690%20375%20900%20455%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20535%20C170%20490%20285%20585%20465%20525%20S725%20455%20900%20520%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23000000%22%20opacity%3D%220.14%22/%3E%0A%20%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22125%22%20r%3D%2290%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cg%20filter%3D%22url%28%23shadow%29%22%3E%0A%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%22355%22%20width%3D%22728%22%20height%3D%22170%22%20rx%3D%2228%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.94%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22165%22%20text-anchor%3D%22middle%22%20font-size%3D%2296%22%20font-family%3D%22Arial%2C%20sans-serif%22%3E%F0%9F%8C%87%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22423%22%20text-anchor%3D%22middle%22%20font-size%3D%2244%22%20font-family%3D%22Georgia%2C%20serif%22%20font-weight%3D%22700%22%20fill%3D%22%23122A38%22%3E360%20CHICAGO%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22470%22%20text-anchor%3D%22middle%22%20font-size%3D%2224%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%2337505F%22%3ESkyline%20deck%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22558%22%20text-anchor%3D%22middle%22%20font-size%3D%2218%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.88%22%3EAmoyaw%20Family%20Vacation%202026%3C/text%3E%0A%3C/svg%3E" decoding="async" loading="lazy" onerror="this.onerror=null;this.src=this.dataset.fallback;" referrerpolicy="no-referrer" src="https://source.unsplash.com/900x650/?chicago-observation-deck,skyline"/></div>
+<div class="body">
+<span class="time">5:00 PM</span>
+<h3><a href="https://360chicago.com" rel="noopener" target="_blank">360 CHICAGO Observation Deck</a></h3>
+<p class="addr"><a href="https://maps.google.com/?cid=8292414968087964532" rel="noopener" target="_blank">📍 875 N Michigan Ave, 94th Floor</a></p>
+<p class="desc">Go up to the 94th floor for skyline and lake views. Good spot for family photos.</p>
+<div class="meta"><span class="badge paid">Tickets already purchased ✓</span><span class="badge">~90 min</span><span class="badge">Open until 11 PM</span></div>
+</div>
+</div>
+</div>
+<p class="commute">2-block walk south to the Water Tower area.</p>
+<div class="stop">
+<div class="card">
+<div class="photo"><img alt="Thai food at Star of Siam" data-fallback="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22900%22%20height%3D%22650%22%20viewBox%3D%220%200%20900%20650%22%20role%3D%22img%22%20aria-label%3D%22Thai%20Dinner%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%238E2F19%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.58%22%20stop-color%3D%22%23E4572E%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23FBF4E8%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22sun%22%20cx%3D%2275%25%22%20cy%3D%2218%25%22%20r%3D%2245%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220.55%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%20%20%3Cfilter%20id%3D%22shadow%22%20x%3D%22-20%25%22%20y%3D%22-20%25%22%20width%3D%22140%25%22%20height%3D%22140%25%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%220%22%20dy%3D%2210%22%20stdDeviation%3D%2214%22%20flood-color%3D%22%23000000%22%20flood-opacity%3D%220.22%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23g%29%22/%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23sun%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20470%20C150%20420%20260%20525%20420%20470%20S690%20375%20900%20455%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20535%20C170%20490%20285%20585%20465%20525%20S725%20455%20900%20520%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23000000%22%20opacity%3D%220.14%22/%3E%0A%20%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22125%22%20r%3D%2290%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cg%20filter%3D%22url%28%23shadow%29%22%3E%0A%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%22355%22%20width%3D%22728%22%20height%3D%22170%22%20rx%3D%2228%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.94%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22165%22%20text-anchor%3D%22middle%22%20font-size%3D%2296%22%20font-family%3D%22Arial%2C%20sans-serif%22%3E%F0%9F%8D%9C%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22423%22%20text-anchor%3D%22middle%22%20font-size%3D%2244%22%20font-family%3D%22Georgia%2C%20serif%22%20font-weight%3D%22700%22%20fill%3D%22%23122A38%22%3EThai%20Dinner%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22470%22%20text-anchor%3D%22middle%22%20font-size%3D%2224%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%2337505F%22%3EStar%20of%20Siam%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22558%22%20text-anchor%3D%22middle%22%20font-size%3D%2218%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.88%22%3EAmoyaw%20Family%20Vacation%202026%3C/text%3E%0A%3C/svg%3E" decoding="async" loading="lazy" onerror="this.onerror=null;this.src=this.dataset.fallback;" referrerpolicy="no-referrer" src="https://source.unsplash.com/900x650/?pad-thai,thai-food"/></div>
+<div class="body">
+<span class="time">7:15 PM</span>
+<h3><a href="http://starofsiamchicago.com" rel="noopener" target="_blank">Dinner · Star of Siam</a></h3>
+<p class="addr"><a href="https://maps.google.com/?cid=1010023533341356660" rel="noopener" target="_blank">📍 11 E Illinois St #1</a></p>
+<p class="desc">Thai dinner in River North. Good options: pad thai, panang curry, and chicken satay.</p>
+<div class="meta"><span class="badge paid">~$15–20/person</span><span class="badge">Thai 🇹🇭</span><span class="badge">Open until 9 PM</span></div>
+</div>
+</div>
+</div>
+<p class="commute">Walk the Magnificent Mile, then drive home.</p>
+</div>
+</section>
+<!-- ================= DAY 2 ================= -->
+<section class="day wrap" id="day2" style="--line:var(--d2)">
+<div class="day-head">
+<span class="day-tag" style="background:var(--d2)">Day 2 · Tue Jul 14</span>
+<h2>Landmarks + river cruise</h2>
+</div>
+<p class="day-sub">A full downtown day: the Bean, Buckingham Fountain, Peruvian lunch, Riverwalk, architecture cruise, and Chinatown dinner.</p>
+<div class="route">
+<div class="stop">
+<div class="card">
+<div class="photo"><img alt="Cloud Gate sculpture reflecting the skyline" data-fallback="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22900%22%20height%3D%22650%22%20viewBox%3D%220%200%20900%20650%22%20role%3D%22img%22%20aria-label%3D%22Cloud%20Gate%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%230B3954%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.58%22%20stop-color%3D%22%23146B8F%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23EDF5F8%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22sun%22%20cx%3D%2275%25%22%20cy%3D%2218%25%22%20r%3D%2245%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220.55%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%20%20%3Cfilter%20id%3D%22shadow%22%20x%3D%22-20%25%22%20y%3D%22-20%25%22%20width%3D%22140%25%22%20height%3D%22140%25%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%220%22%20dy%3D%2210%22%20stdDeviation%3D%2214%22%20flood-color%3D%22%23000000%22%20flood-opacity%3D%220.22%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23g%29%22/%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23sun%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20470%20C150%20420%20260%20525%20420%20470%20S690%20375%20900%20455%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20535%20C170%20490%20285%20585%20465%20525%20S725%20455%20900%20520%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23000000%22%20opacity%3D%220.14%22/%3E%0A%20%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22125%22%20r%3D%2290%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cg%20filter%3D%22url%28%23shadow%29%22%3E%0A%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%22355%22%20width%3D%22728%22%20height%3D%22170%22%20rx%3D%2228%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.94%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22165%22%20text-anchor%3D%22middle%22%20font-size%3D%2296%22%20font-family%3D%22Arial%2C%20sans-serif%22%3E%F0%9F%AB%98%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22423%22%20text-anchor%3D%22middle%22%20font-size%3D%2244%22%20font-family%3D%22Georgia%2C%20serif%22%20font-weight%3D%22700%22%20fill%3D%22%23122A38%22%3ECloud%20Gate%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22470%22%20text-anchor%3D%22middle%22%20font-size%3D%2224%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%2337505F%22%3EThe%20Bean%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22558%22%20text-anchor%3D%22middle%22%20font-size%3D%2218%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.88%22%3EAmoyaw%20Family%20Vacation%202026%3C/text%3E%0A%3C/svg%3E" decoding="async" loading="lazy" onerror="this.onerror=null;this.src=this.dataset.fallback;" referrerpolicy="no-referrer" src="https://source.unsplash.com/900x650/?cloud-gate,chicago"/></div>
+<div class="body">
+<span class="time">10:00 AM</span>
+<h3><a href="https://maps.google.com/?cid=454089436623948369" rel="noopener" target="_blank">Millennium Park · Cloud Gate ("The Bean")</a></h3>
+<p class="addr"><a href="https://maps.google.com/?cid=454089436623948369" rel="noopener" target="_blank">📍 201 E Randolph St</a></p>
+<p class="desc">Classic Chicago photo stop. Crown Fountain and Lurie Garden are nearby.</p>
+<div class="meta"><span class="badge free">FREE</span><span class="badge">~75 min</span></div>
+</div>
+</div>
+</div>
+<p class="commute">5 min walk across BP Bridge.</p>
+<div class="stop">
+<div class="card">
+<div class="photo"><img alt="Maggie Daley Park" data-fallback="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22900%22%20height%3D%22650%22%20viewBox%3D%220%200%20900%20650%22%20role%3D%22img%22%20aria-label%3D%22Maggie%20Daley%20Park%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%231F5B3A%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.58%22%20stop-color%3D%22%233E8E5A%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23E4F3EA%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22sun%22%20cx%3D%2275%25%22%20cy%3D%2218%25%22%20r%3D%2245%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220.55%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%20%20%3Cfilter%20id%3D%22shadow%22%20x%3D%22-20%25%22%20y%3D%22-20%25%22%20width%3D%22140%25%22%20height%3D%22140%25%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%220%22%20dy%3D%2210%22%20stdDeviation%3D%2214%22%20flood-color%3D%22%23000000%22%20flood-opacity%3D%220.22%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23g%29%22/%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23sun%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20470%20C150%20420%20260%20525%20420%20470%20S690%20375%20900%20455%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20535%20C170%20490%20285%20585%20465%20525%20S725%20455%20900%20520%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23000000%22%20opacity%3D%220.14%22/%3E%0A%20%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22125%22%20r%3D%2290%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cg%20filter%3D%22url%28%23shadow%29%22%3E%0A%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%22355%22%20width%3D%22728%22%20height%3D%22170%22%20rx%3D%2228%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.94%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22165%22%20text-anchor%3D%22middle%22%20font-size%3D%2296%22%20font-family%3D%22Arial%2C%20sans-serif%22%3E%F0%9F%8C%B3%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22423%22%20text-anchor%3D%22middle%22%20font-size%3D%2244%22%20font-family%3D%22Georgia%2C%20serif%22%20font-weight%3D%22700%22%20fill%3D%22%23122A38%22%3EMaggie%20Daley%20Park%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22470%22%20text-anchor%3D%22middle%22%20font-size%3D%2224%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%2337505F%22%3ESkyline%20walk%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22558%22%20text-anchor%3D%22middle%22%20font-size%3D%2218%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.88%22%3EAmoyaw%20Family%20Vacation%202026%3C/text%3E%0A%3C/svg%3E" decoding="async" loading="lazy" onerror="this.onerror=null;this.src=this.dataset.fallback;" referrerpolicy="no-referrer" src="https://source.unsplash.com/900x650/?chicago-park,skyline"/></div>
+<div class="body">
+<span class="time">11:15 AM</span>
+<h3><a href="http://maggiedaleypark.com/" rel="noopener" target="_blank">Maggie Daley Park</a></h3>
+<p class="addr"><a href="https://maps.google.com/?cid=12356371300343090168" rel="noopener" target="_blank">📍 337 E Randolph St</a></p>
+<p class="desc">Short walk for skyline views and a quick break from the crowds.</p>
+<div class="meta"><span class="badge free">FREE</span><span class="badge">~30 min</span></div>
+</div>
+</div>
+</div>
+<p class="commute">12 min walk through Grant Park.</p>
+<div class="stop">
+<div class="card">
+<div class="photo"><img alt="Buckingham Fountain" data-fallback="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22900%22%20height%3D%22650%22%20viewBox%3D%220%200%20900%20650%22%20role%3D%22img%22%20aria-label%3D%22Buckingham%20Fountain%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%230B3954%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.58%22%20stop-color%3D%22%23146B8F%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23EDF5F8%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22sun%22%20cx%3D%2275%25%22%20cy%3D%2218%25%22%20r%3D%2245%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220.55%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%20%20%3Cfilter%20id%3D%22shadow%22%20x%3D%22-20%25%22%20y%3D%22-20%25%22%20width%3D%22140%25%22%20height%3D%22140%25%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%220%22%20dy%3D%2210%22%20stdDeviation%3D%2214%22%20flood-color%3D%22%23000000%22%20flood-opacity%3D%220.22%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23g%29%22/%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23sun%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20470%20C150%20420%20260%20525%20420%20470%20S690%20375%20900%20455%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20535%20C170%20490%20285%20585%20465%20525%20S725%20455%20900%20520%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23000000%22%20opacity%3D%220.14%22/%3E%0A%20%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22125%22%20r%3D%2290%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cg%20filter%3D%22url%28%23shadow%29%22%3E%0A%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%22355%22%20width%3D%22728%22%20height%3D%22170%22%20rx%3D%2228%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.94%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22165%22%20text-anchor%3D%22middle%22%20font-size%3D%2296%22%20font-family%3D%22Arial%2C%20sans-serif%22%3E%E2%9B%B2%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22423%22%20text-anchor%3D%22middle%22%20font-size%3D%2244%22%20font-family%3D%22Georgia%2C%20serif%22%20font-weight%3D%22700%22%20fill%3D%22%23122A38%22%3EBuckingham%20Fountain%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22470%22%20text-anchor%3D%22middle%22%20font-size%3D%2224%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%2337505F%22%3EGrant%20Park%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22558%22%20text-anchor%3D%22middle%22%20font-size%3D%2218%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.88%22%3EAmoyaw%20Family%20Vacation%202026%3C/text%3E%0A%3C/svg%3E" decoding="async" loading="lazy" onerror="this.onerror=null;this.src=this.dataset.fallback;" referrerpolicy="no-referrer" src="https://source.unsplash.com/900x650/?buckingham-fountain,chicago"/></div>
+<div class="body">
+<span class="time">11:50 AM</span>
+<h3><a href="https://www.chicagoparkdistrict.com/parks-facilities/clarence-f-buckingham-memorial-fountain" rel="noopener" target="_blank">Buckingham Fountain</a></h3>
+<p class="addr"><a href="https://maps.google.com/?cid=2612090174491962969" rel="noopener" target="_blank">📍 301 S Columbus Dr</a></p>
+<p class="desc">Grant Park fountain stop. The water show usually runs at the top of the hour.</p>
+<div class="meta"><span class="badge free">FREE</span><span class="badge">~20 min</span></div>
+</div>
+</div>
+</div>
+<p class="commute">Willis Tower photo, then 10–15 min rideshare or 28 min walk.</p>
+<div class="stop">
+<div class="card">
+<div class="photo"><img alt="Lomo saltado and Peruvian food at Tanta Chicago" data-fallback="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22900%22%20height%3D%22650%22%20viewBox%3D%220%200%20900%20650%22%20role%3D%22img%22%20aria-label%3D%22Lomo%20Saltado%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%237B1E1E%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.58%22%20stop-color%3D%22%23D6402E%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23FFF0E8%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22sun%22%20cx%3D%2275%25%22%20cy%3D%2218%25%22%20r%3D%2245%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220.55%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%20%20%3Cfilter%20id%3D%22shadow%22%20x%3D%22-20%25%22%20y%3D%22-20%25%22%20width%3D%22140%25%22%20height%3D%22140%25%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%220%22%20dy%3D%2210%22%20stdDeviation%3D%2214%22%20flood-color%3D%22%23000000%22%20flood-opacity%3D%220.22%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23g%29%22/%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23sun%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20470%20C150%20420%20260%20525%20420%20470%20S690%20375%20900%20455%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20535%20C170%20490%20285%20585%20465%20525%20S725%20455%20900%20520%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23000000%22%20opacity%3D%220.14%22/%3E%0A%20%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22125%22%20r%3D%2290%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cg%20filter%3D%22url%28%23shadow%29%22%3E%0A%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%22355%22%20width%3D%22728%22%20height%3D%22170%22%20rx%3D%2228%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.94%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22165%22%20text-anchor%3D%22middle%22%20font-size%3D%2296%22%20font-family%3D%22Arial%2C%20sans-serif%22%3E%F0%9F%87%B5%F0%9F%87%AA%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22423%22%20text-anchor%3D%22middle%22%20font-size%3D%2244%22%20font-family%3D%22Georgia%2C%20serif%22%20font-weight%3D%22700%22%20fill%3D%22%23122A38%22%3ELomo%20Saltado%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22470%22%20text-anchor%3D%22middle%22%20font-size%3D%2224%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%2337505F%22%3EPeruvian%20lunch%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22558%22%20text-anchor%3D%22middle%22%20font-size%3D%2218%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.88%22%3EAmoyaw%20Family%20Vacation%202026%3C/text%3E%0A%3C/svg%3E" decoding="async" loading="lazy" onerror="this.onerror=null;this.src=this.dataset.fallback;" referrerpolicy="no-referrer" src="https://source.unsplash.com/900x650/?lomo-saltado,peruvian-food"/></div>
+<div class="body">
+<span class="time">12:45 PM</span>
+<h3><a href="https://www.tantachicago.com/our-menu" rel="noopener" target="_blank">Lunch · Tanta Chicago</a></h3>
+<p class="addr"><a href="https://www.google.com/maps/search/?api=1&amp;query=Tanta+Chicago+118+W+Grand+Ave+Chicago+IL+60654" rel="noopener" target="_blank">📍 118 W Grand Ave, River North</a></p>
+<p class="desc">Peruvian lunch in River North. Order lomo saltado; cebiche, chaufa, and empanadas are also good shared options.</p>
+<div class="meta"><span class="badge paid">~$25–40/person</span><span class="badge">Peruvian 🇵🇪</span><span class="badge">Lomo saltado ✓</span></div>
+</div>
+</div>
+</div>
+<p class="commute">10–12 min walk to the Riverwalk.</p>
+<div class="stop">
+<div class="card">
+<div class="photo"><img alt="Chicago Riverwalk" data-fallback="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22900%22%20height%3D%22650%22%20viewBox%3D%220%200%20900%20650%22%20role%3D%22img%22%20aria-label%3D%22Chicago%20Riverwalk%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%230B3954%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.58%22%20stop-color%3D%22%23146B8F%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23EDF5F8%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22sun%22%20cx%3D%2275%25%22%20cy%3D%2218%25%22%20r%3D%2245%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220.55%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%20%20%3Cfilter%20id%3D%22shadow%22%20x%3D%22-20%25%22%20y%3D%22-20%25%22%20width%3D%22140%25%22%20height%3D%22140%25%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%220%22%20dy%3D%2210%22%20stdDeviation%3D%2214%22%20flood-color%3D%22%23000000%22%20flood-opacity%3D%220.22%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23g%29%22/%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23sun%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20470%20C150%20420%20260%20525%20420%20470%20S690%20375%20900%20455%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20535%20C170%20490%20285%20585%20465%20525%20S725%20455%20900%20520%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23000000%22%20opacity%3D%220.14%22/%3E%0A%20%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22125%22%20r%3D%2290%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cg%20filter%3D%22url%28%23shadow%29%22%3E%0A%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%22355%22%20width%3D%22728%22%20height%3D%22170%22%20rx%3D%2228%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.94%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22165%22%20text-anchor%3D%22middle%22%20font-size%3D%2296%22%20font-family%3D%22Arial%2C%20sans-serif%22%3E%F0%9F%9A%B6%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22423%22%20text-anchor%3D%22middle%22%20font-size%3D%2244%22%20font-family%3D%22Georgia%2C%20serif%22%20font-weight%3D%22700%22%20fill%3D%22%23122A38%22%3EChicago%20Riverwalk%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22470%22%20text-anchor%3D%22middle%22%20font-size%3D%2224%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%2337505F%22%3ERiver%20route%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22558%22%20text-anchor%3D%22middle%22%20font-size%3D%2218%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.88%22%3EAmoyaw%20Family%20Vacation%202026%3C/text%3E%0A%3C/svg%3E" decoding="async" loading="lazy" onerror="this.onerror=null;this.src=this.dataset.fallback;" referrerpolicy="no-referrer" src="https://source.unsplash.com/900x650/?chicago-riverwalk"/></div>
+<div class="body">
+<span class="time">2:45 PM</span>
+<h3><a href="https://www.chicago.gov/city/en/sites/chicagoriverwalk/home.html" rel="noopener" target="_blank">Chicago Riverwalk</a></h3>
+<p class="addr"><a href="https://maps.google.com/?cid=18410674774676086598" rel="noopener" target="_blank">📍 Along the river, State St to Lake Shore Dr</a></p>
+<p class="desc">Walk along the river toward the cruise dock. Good views of the bridges and buildings.</p>
+<div class="meta"><span class="badge free">FREE</span><span class="badge">~45 min</span></div>
+</div>
+</div>
+</div>
+<p class="commute">Cruise dock is at the Wrigley Building near DuSable Bridge.</p>
+<div class="stop">
+<div class="card">
+<div class="photo"><img alt="Wendella boat on the Chicago River" data-fallback="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22900%22%20height%3D%22650%22%20viewBox%3D%220%200%20900%20650%22%20role%3D%22img%22%20aria-label%3D%22Architecture%20Cruise%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%230B3954%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.58%22%20stop-color%3D%22%23146B8F%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23EDF5F8%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22sun%22%20cx%3D%2275%25%22%20cy%3D%2218%25%22%20r%3D%2245%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220.55%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%20%20%3Cfilter%20id%3D%22shadow%22%20x%3D%22-20%25%22%20y%3D%22-20%25%22%20width%3D%22140%25%22%20height%3D%22140%25%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%220%22%20dy%3D%2210%22%20stdDeviation%3D%2214%22%20flood-color%3D%22%23000000%22%20flood-opacity%3D%220.22%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23g%29%22/%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23sun%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20470%20C150%20420%20260%20525%20420%20470%20S690%20375%20900%20455%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20535%20C170%20490%20285%20585%20465%20525%20S725%20455%20900%20520%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23000000%22%20opacity%3D%220.14%22/%3E%0A%20%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22125%22%20r%3D%2290%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cg%20filter%3D%22url%28%23shadow%29%22%3E%0A%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%22355%22%20width%3D%22728%22%20height%3D%22170%22%20rx%3D%2228%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.94%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22165%22%20text-anchor%3D%22middle%22%20font-size%3D%2296%22%20font-family%3D%22Arial%2C%20sans-serif%22%3E%F0%9F%9A%A4%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22423%22%20text-anchor%3D%22middle%22%20font-size%3D%2244%22%20font-family%3D%22Georgia%2C%20serif%22%20font-weight%3D%22700%22%20fill%3D%22%23122A38%22%3EArchitecture%20Cruise%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22470%22%20text-anchor%3D%22middle%22%20font-size%3D%2224%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%2337505F%22%3EWendella%20boat%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22558%22%20text-anchor%3D%22middle%22%20font-size%3D%2218%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.88%22%3EAmoyaw%20Family%20Vacation%202026%3C/text%3E%0A%3C/svg%3E" decoding="async" loading="lazy" onerror="this.onerror=null;this.src=this.dataset.fallback;" referrerpolicy="no-referrer" src="https://source.unsplash.com/900x650/?chicago-river-cruise"/></div>
+<div class="body">
+<span class="time">3:30 PM · cruise at 4:00</span>
+<h3><a href="https://wendellaboats.com/products/45-minute-chicago-river-architecture-tour" rel="noopener" target="_blank">Wendella 45-Min Architecture River Cruise</a></h3>
+<p class="addr"><a href="https://maps.google.com/?cid=669562306905936956" rel="noopener" target="_blank">📍 400 N Michigan Ave (dock level)</a></p>
+<p class="desc">45-minute boat tour with a guide. Arrive about 30 minutes early.</p>
+<div class="meta"><span class="badge paid">$28/person · $140 total</span><span class="badge book"><a href="https://wendellaboats.com/products/45-minute-chicago-river-architecture-tour" rel="noopener" target="_blank">Book tickets →</a></span></div>
+</div>
+</div>
+</div>
+<p class="commute">After the cruise, head to Chinatown.</p>
+<div class="stop">
+<div class="card">
+<div class="photo"><img alt="Dim sum at MingHin Cuisine" data-fallback="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22900%22%20height%3D%22650%22%20viewBox%3D%220%200%20900%20650%22%20role%3D%22img%22%20aria-label%3D%22Dim%20Sum%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%237A4D00%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.58%22%20stop-color%3D%22%23F5B841%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23FBF4E8%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22sun%22%20cx%3D%2275%25%22%20cy%3D%2218%25%22%20r%3D%2245%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220.55%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%20%20%3Cfilter%20id%3D%22shadow%22%20x%3D%22-20%25%22%20y%3D%22-20%25%22%20width%3D%22140%25%22%20height%3D%22140%25%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%220%22%20dy%3D%2210%22%20stdDeviation%3D%2214%22%20flood-color%3D%22%23000000%22%20flood-opacity%3D%220.22%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23g%29%22/%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23sun%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20470%20C150%20420%20260%20525%20420%20470%20S690%20375%20900%20455%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20535%20C170%20490%20285%20585%20465%20525%20S725%20455%20900%20520%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23000000%22%20opacity%3D%220.14%22/%3E%0A%20%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22125%22%20r%3D%2290%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cg%20filter%3D%22url%28%23shadow%29%22%3E%0A%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%22355%22%20width%3D%22728%22%20height%3D%22170%22%20rx%3D%2228%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.94%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22165%22%20text-anchor%3D%22middle%22%20font-size%3D%2296%22%20font-family%3D%22Arial%2C%20sans-serif%22%3E%F0%9F%A5%9F%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22423%22%20text-anchor%3D%22middle%22%20font-size%3D%2244%22%20font-family%3D%22Georgia%2C%20serif%22%20font-weight%3D%22700%22%20fill%3D%22%23122A38%22%3EDim%20Sum%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22470%22%20text-anchor%3D%22middle%22%20font-size%3D%2224%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%2337505F%22%3EChinatown%20dinner%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22558%22%20text-anchor%3D%22middle%22%20font-size%3D%2218%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.88%22%3EAmoyaw%20Family%20Vacation%202026%3C/text%3E%0A%3C/svg%3E" decoding="async" loading="lazy" onerror="this.onerror=null;this.src=this.dataset.fallback;" referrerpolicy="no-referrer" src="https://source.unsplash.com/900x650/?dim-sum,chinese-food"/></div>
+<div class="body">
+<span class="time">6:15 PM</span>
+<h3><a href="https://www.minghincuisine.com/chinatown" rel="noopener" target="_blank">Dinner · MingHin Cuisine, Chinatown</a></h3>
+<p class="addr"><a href="https://maps.google.com/?cid=17716051792157188510" rel="noopener" target="_blank">📍 2168 S Archer Ave</a></p>
+<p class="desc">Family-style dim sum and Cantonese dishes. Chinatown Gate is nearby for photos.</p>
+<div class="meta"><span class="badge paid">~$20–25/person</span><span class="badge">Dim sum · Seafood 🇨🇳</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= DAY 3 ================= -->
+<section class="day wrap" id="day3" style="--line:var(--d3)">
+<div class="day-head">
+<span class="day-tag" style="background:var(--d3)">Day 3 · Wed Jul 15</span>
+<h2>Beach day + fireworks</h2>
+</div>
+<p class="day-sub">Breakfast, North Avenue Beach, Korean dinner with tteokbokki, then Navy Pier fireworks.</p>
+<div class="route">
+<div class="stop">
+<div class="card">
+<div class="photo"><img alt="Pastries and chai at Swadesi Cafe" data-fallback="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22900%22%20height%3D%22650%22%20viewBox%3D%220%200%20900%20650%22%20role%3D%22img%22%20aria-label%3D%22Swadesi%20Cafe%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%237A4D00%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.58%22%20stop-color%3D%22%23F5B841%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23FBF4E8%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22sun%22%20cx%3D%2275%25%22%20cy%3D%2218%25%22%20r%3D%2245%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220.55%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%20%20%3Cfilter%20id%3D%22shadow%22%20x%3D%22-20%25%22%20y%3D%22-20%25%22%20width%3D%22140%25%22%20height%3D%22140%25%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%220%22%20dy%3D%2210%22%20stdDeviation%3D%2214%22%20flood-color%3D%22%23000000%22%20flood-opacity%3D%220.22%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23g%29%22/%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23sun%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20470%20C150%20420%20260%20525%20420%20470%20S690%20375%20900%20455%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20535%20C170%20490%20285%20585%20465%20525%20S725%20455%20900%20520%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23000000%22%20opacity%3D%220.14%22/%3E%0A%20%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22125%22%20r%3D%2290%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cg%20filter%3D%22url%28%23shadow%29%22%3E%0A%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%22355%22%20width%3D%22728%22%20height%3D%22170%22%20rx%3D%2228%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.94%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22165%22%20text-anchor%3D%22middle%22%20font-size%3D%2296%22%20font-family%3D%22Arial%2C%20sans-serif%22%3E%E2%98%95%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22423%22%20text-anchor%3D%22middle%22%20font-size%3D%2244%22%20font-family%3D%22Georgia%2C%20serif%22%20font-weight%3D%22700%22%20fill%3D%22%23122A38%22%3ESwadesi%20Cafe%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22470%22%20text-anchor%3D%22middle%22%20font-size%3D%2224%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%2337505F%22%3ESavory%20breakfast%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22558%22%20text-anchor%3D%22middle%22%20font-size%3D%2218%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.88%22%3EAmoyaw%20Family%20Vacation%202026%3C/text%3E%0A%3C/svg%3E" decoding="async" loading="lazy" onerror="this.onerror=null;this.src=this.dataset.fallback;" referrerpolicy="no-referrer" src="https://source.unsplash.com/900x650/?indian-breakfast,cafe"/></div>
+<div class="body">
+<span class="time">8:30 AM</span>
+<h3><a href="http://swadesicafe.com/" rel="noopener" target="_blank">Breakfast · Swadesi Cafe</a></h3>
+<p class="addr"><a href="https://maps.google.com/?cid=10843044712072260651" rel="noopener" target="_blank">📍 328 S Jefferson St #120, West Loop</a></p>
+<p class="desc">Indian-fusion breakfast in the West Loop. Savory options include chicken tikka toasties, paneer puffs, and masala chai.</p>
+<div class="meta"><span class="badge paid">~$15–18/person</span><span class="badge">Indian fusion 🇮🇳</span></div>
+</div>
+</div>
+</div>
+<p class="commute">15 min drive to North Avenue Beach.</p>
+<div class="stop">
+<div class="card">
+<div class="photo"><img alt="North Avenue Beach with the Chicago skyline" data-fallback="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22900%22%20height%3D%22650%22%20viewBox%3D%220%200%20900%20650%22%20role%3D%22img%22%20aria-label%3D%22North%20Avenue%20Beach%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%238E2F19%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.58%22%20stop-color%3D%22%23E4572E%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23FBF4E8%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22sun%22%20cx%3D%2275%25%22%20cy%3D%2218%25%22%20r%3D%2245%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220.55%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%20%20%3Cfilter%20id%3D%22shadow%22%20x%3D%22-20%25%22%20y%3D%22-20%25%22%20width%3D%22140%25%22%20height%3D%22140%25%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%220%22%20dy%3D%2210%22%20stdDeviation%3D%2214%22%20flood-color%3D%22%23000000%22%20flood-opacity%3D%220.22%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23g%29%22/%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23sun%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20470%20C150%20420%20260%20525%20420%20470%20S690%20375%20900%20455%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20535%20C170%20490%20285%20585%20465%20525%20S725%20455%20900%20520%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23000000%22%20opacity%3D%220.14%22/%3E%0A%20%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22125%22%20r%3D%2290%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cg%20filter%3D%22url%28%23shadow%29%22%3E%0A%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%22355%22%20width%3D%22728%22%20height%3D%22170%22%20rx%3D%2228%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.94%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22165%22%20text-anchor%3D%22middle%22%20font-size%3D%2296%22%20font-family%3D%22Arial%2C%20sans-serif%22%3E%F0%9F%8F%96%EF%B8%8F%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22423%22%20text-anchor%3D%22middle%22%20font-size%3D%2244%22%20font-family%3D%22Georgia%2C%20serif%22%20font-weight%3D%22700%22%20fill%3D%22%23122A38%22%3ENorth%20Avenue%20Beach%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22470%22%20text-anchor%3D%22middle%22%20font-size%3D%2224%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%2337505F%22%3ELake%20Michigan%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22558%22%20text-anchor%3D%22middle%22%20font-size%3D%2218%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.88%22%3EAmoyaw%20Family%20Vacation%202026%3C/text%3E%0A%3C/svg%3E" decoding="async" loading="lazy" onerror="this.onerror=null;this.src=this.dataset.fallback;" referrerpolicy="no-referrer" src="https://source.unsplash.com/900x650/?north-avenue-beach,chicago"/></div>
+<div class="body">
+<span class="time">10:15 AM</span>
+<h3><a href="https://maps.google.com/?cid=1958046114167331711" rel="noopener" target="_blank">North Avenue Beach</a></h3>
+<p class="addr"><a href="https://maps.google.com/?cid=1958046114167331711" rel="noopener" target="_blank">📍 1600 N Lake Shore Dr</a></p>
+<p class="desc">Beach time with skyline views. Bring sunscreen, towels, water, and shade if possible.</p>
+<div class="meta"><span class="badge free">FREE</span><span class="badge">~5 hours</span></div>
+</div>
+</div>
+</div>
+<p class="commute">Lunch is on the beach.</p>
+<div class="stop">
+<div class="card">
+<div class="photo"><img alt="Castaways Beach Club, the boat-shaped grill on North Avenue Beach" data-fallback="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22900%22%20height%3D%22650%22%20viewBox%3D%220%200%20900%20650%22%20role%3D%22img%22%20aria-label%3D%22Castaways%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%238E2F19%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.58%22%20stop-color%3D%22%23E4572E%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23FBF4E8%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22sun%22%20cx%3D%2275%25%22%20cy%3D%2218%25%22%20r%3D%2245%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220.55%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%20%20%3Cfilter%20id%3D%22shadow%22%20x%3D%22-20%25%22%20y%3D%22-20%25%22%20width%3D%22140%25%22%20height%3D%22140%25%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%220%22%20dy%3D%2210%22%20stdDeviation%3D%2214%22%20flood-color%3D%22%23000000%22%20flood-opacity%3D%220.22%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23g%29%22/%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23sun%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20470%20C150%20420%20260%20525%20420%20470%20S690%20375%20900%20455%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20535%20C170%20490%20285%20585%20465%20525%20S725%20455%20900%20520%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23000000%22%20opacity%3D%220.14%22/%3E%0A%20%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22125%22%20r%3D%2290%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cg%20filter%3D%22url%28%23shadow%29%22%3E%0A%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%22355%22%20width%3D%22728%22%20height%3D%22170%22%20rx%3D%2228%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.94%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22165%22%20text-anchor%3D%22middle%22%20font-size%3D%2296%22%20font-family%3D%22Arial%2C%20sans-serif%22%3E%F0%9F%8D%94%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22423%22%20text-anchor%3D%22middle%22%20font-size%3D%2244%22%20font-family%3D%22Georgia%2C%20serif%22%20font-weight%3D%22700%22%20fill%3D%22%23122A38%22%3ECastaways%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22470%22%20text-anchor%3D%22middle%22%20font-size%3D%2224%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%2337505F%22%3EBeach%20lunch%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22558%22%20text-anchor%3D%22middle%22%20font-size%3D%2218%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.88%22%3EAmoyaw%20Family%20Vacation%202026%3C/text%3E%0A%3C/svg%3E" decoding="async" loading="lazy" onerror="this.onerror=null;this.src=this.dataset.fallback;" referrerpolicy="no-referrer" src="https://source.unsplash.com/900x650/?beach-restaurant,lunch"/></div>
+<div class="body">
+<span class="time">1:00 PM</span>
+<h3><a href="http://castawayschicago.com/" rel="noopener" target="_blank">Lunch · Castaways Beach Club</a></h3>
+<p class="addr"><a href="https://maps.google.com/?cid=5716274408136105952" rel="noopener" target="_blank">📍 1603 N Lake Shore Dr (on the beach)</a></p>
+<p class="desc">Lunch on the beach. Packing snacks or a cooler can save money.</p>
+<div class="meta"><span class="badge paid">~$15–20/person</span></div>
+</div>
+</div>
+</div>
+<p class="commute">Back to the Airbnb around 3:30 for showers, then drive to Uptown.</p>
+<div class="stop">
+<div class="card">
+<div class="photo"><img alt="Korean tteokbokki with rice cakes in spicy sauce at Kimchi Pop" data-fallback="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22900%22%20height%3D%22650%22%20viewBox%3D%220%200%20900%20650%22%20role%3D%22img%22%20aria-label%3D%22Tteokbokki%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%237B1E1E%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.58%22%20stop-color%3D%22%23D6402E%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23FFF0E8%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22sun%22%20cx%3D%2275%25%22%20cy%3D%2218%25%22%20r%3D%2245%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220.55%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%20%20%3Cfilter%20id%3D%22shadow%22%20x%3D%22-20%25%22%20y%3D%22-20%25%22%20width%3D%22140%25%22%20height%3D%22140%25%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%220%22%20dy%3D%2210%22%20stdDeviation%3D%2214%22%20flood-color%3D%22%23000000%22%20flood-opacity%3D%220.22%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23g%29%22/%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23sun%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20470%20C150%20420%20260%20525%20420%20470%20S690%20375%20900%20455%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20535%20C170%20490%20285%20585%20465%20525%20S725%20455%20900%20520%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23000000%22%20opacity%3D%220.14%22/%3E%0A%20%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22125%22%20r%3D%2290%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cg%20filter%3D%22url%28%23shadow%29%22%3E%0A%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%22355%22%20width%3D%22728%22%20height%3D%22170%22%20rx%3D%2228%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.94%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22165%22%20text-anchor%3D%22middle%22%20font-size%3D%2296%22%20font-family%3D%22Arial%2C%20sans-serif%22%3E%F0%9F%87%B0%F0%9F%87%B7%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22423%22%20text-anchor%3D%22middle%22%20font-size%3D%2244%22%20font-family%3D%22Georgia%2C%20serif%22%20font-weight%3D%22700%22%20fill%3D%22%23122A38%22%3ETteokbokki%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22470%22%20text-anchor%3D%22middle%22%20font-size%3D%2224%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%2337505F%22%3EKorean%20dinner%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22558%22%20text-anchor%3D%22middle%22%20font-size%3D%2218%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.88%22%3EAmoyaw%20Family%20Vacation%202026%3C/text%3E%0A%3C/svg%3E" decoding="async" loading="lazy" onerror="this.onerror=null;this.src=this.dataset.fallback;" referrerpolicy="no-referrer" src="https://source.unsplash.com/900x650/?tteokbokki,korean-food"/></div>
+<div class="body">
+<span class="time">5:45 PM</span>
+<h3><a href="https://www.kimchipopbychefson.com/" rel="noopener" target="_blank">Dinner · Kimchi Pop! Broadway</a></h3>
+<p class="addr"><a href="https://www.google.com/maps/search/?api=1&amp;query=Kimchi+Pop+4429+N+Broadway+Chicago+IL+60640" rel="noopener" target="_blank">📍 4429 N Broadway, Uptown</a></p>
+<p class="desc">Korean dinner in Uptown. Start with tteokbokki, then add bibimbap, Korean fried chicken, japchae, or bulgogi.</p>
+<div class="meta"><span class="badge paid">~$15–22/person</span><span class="badge">Korean 🇰🇷</span><span class="badge">Tteokbokki ✓</span></div>
+</div>
+</div>
+</div>
+<p class="commute">About 20 min drive to the fireworks viewing area.</p>
+<div class="stop">
+<div class="card">
+<div class="photo"><img alt="Navy Pier at night" data-fallback="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22900%22%20height%3D%22650%22%20viewBox%3D%220%200%20900%20650%22%20role%3D%22img%22%20aria-label%3D%22Navy%20Pier%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2339275B%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.58%22%20stop-color%3D%22%237D5BA6%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23F1ECF8%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22sun%22%20cx%3D%2275%25%22%20cy%3D%2218%25%22%20r%3D%2245%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220.55%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%20%20%3Cfilter%20id%3D%22shadow%22%20x%3D%22-20%25%22%20y%3D%22-20%25%22%20width%3D%22140%25%22%20height%3D%22140%25%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%220%22%20dy%3D%2210%22%20stdDeviation%3D%2214%22%20flood-color%3D%22%23000000%22%20flood-opacity%3D%220.22%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23g%29%22/%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23sun%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20470%20C150%20420%20260%20525%20420%20470%20S690%20375%20900%20455%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20535%20C170%20490%20285%20585%20465%20525%20S725%20455%20900%20520%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23000000%22%20opacity%3D%220.14%22/%3E%0A%20%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22125%22%20r%3D%2290%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cg%20filter%3D%22url%28%23shadow%29%22%3E%0A%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%22355%22%20width%3D%22728%22%20height%3D%22170%22%20rx%3D%2228%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.94%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22165%22%20text-anchor%3D%22middle%22%20font-size%3D%2296%22%20font-family%3D%22Arial%2C%20sans-serif%22%3E%F0%9F%8E%86%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22423%22%20text-anchor%3D%22middle%22%20font-size%3D%2244%22%20font-family%3D%22Georgia%2C%20serif%22%20font-weight%3D%22700%22%20fill%3D%22%23122A38%22%3ENavy%20Pier%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22470%22%20text-anchor%3D%22middle%22%20font-size%3D%2224%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%2337505F%22%3EFireworks%20night%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22558%22%20text-anchor%3D%22middle%22%20font-size%3D%2218%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.88%22%3EAmoyaw%20Family%20Vacation%202026%3C/text%3E%0A%3C/svg%3E" decoding="async" loading="lazy" onerror="this.onerror=null;this.src=this.dataset.fallback;" referrerpolicy="no-referrer" src="https://source.unsplash.com/900x650/?navy-pier,fireworks"/></div>
+<div class="body">
+<span class="time">8:15 PM · show at 9:00</span>
+<h3><a href="https://navypier.org/pier-events/summer-fireworks/" rel="noopener" target="_blank">Navy Pier Summer Fireworks</a></h3>
+<p class="addr"><a href="https://maps.google.com/?cid=15036634696136565980" rel="noopener" target="_blank">📍 600 E Grand Ave</a></p>
+<p class="desc">Free Wednesday fireworks over Lake Michigan at 9 PM. Optional if everyone is tired.</p>
+<div class="meta"><span class="badge free">FREE</span><span class="badge">Optional</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= DAY 4 ================= -->
+<section class="day wrap" id="day4" style="--line:var(--d4)">
+<div class="day-head">
+<span class="day-tag" style="background:var(--d4)">Day 4 · Thu Jul 16</span>
+<h2>Zoo morning + brunch</h2>
+</div>
+<p class="day-sub">Pack up, visit Lincoln Park Zoo, then brunch before heading home.</p>
+<div class="route">
+<div class="stop">
+<div class="card">
+<div class="photo"><img alt="Lincoln Park Zoo grounds" data-fallback="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22900%22%20height%3D%22650%22%20viewBox%3D%220%200%20900%20650%22%20role%3D%22img%22%20aria-label%3D%22Lincoln%20Park%20Zoo%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%231F5B3A%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.58%22%20stop-color%3D%22%233E8E5A%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23E4F3EA%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22sun%22%20cx%3D%2275%25%22%20cy%3D%2218%25%22%20r%3D%2245%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220.55%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%20%20%3Cfilter%20id%3D%22shadow%22%20x%3D%22-20%25%22%20y%3D%22-20%25%22%20width%3D%22140%25%22%20height%3D%22140%25%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%220%22%20dy%3D%2210%22%20stdDeviation%3D%2214%22%20flood-color%3D%22%23000000%22%20flood-opacity%3D%220.22%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23g%29%22/%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23sun%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20470%20C150%20420%20260%20525%20420%20470%20S690%20375%20900%20455%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20535%20C170%20490%20285%20585%20465%20525%20S725%20455%20900%20520%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23000000%22%20opacity%3D%220.14%22/%3E%0A%20%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22125%22%20r%3D%2290%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cg%20filter%3D%22url%28%23shadow%29%22%3E%0A%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%22355%22%20width%3D%22728%22%20height%3D%22170%22%20rx%3D%2228%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.94%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22165%22%20text-anchor%3D%22middle%22%20font-size%3D%2296%22%20font-family%3D%22Arial%2C%20sans-serif%22%3E%F0%9F%A6%81%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22423%22%20text-anchor%3D%22middle%22%20font-size%3D%2244%22%20font-family%3D%22Georgia%2C%20serif%22%20font-weight%3D%22700%22%20fill%3D%22%23122A38%22%3ELincoln%20Park%20Zoo%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22470%22%20text-anchor%3D%22middle%22%20font-size%3D%2224%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%2337505F%22%3EFree%20morning%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22558%22%20text-anchor%3D%22middle%22%20font-size%3D%2218%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.88%22%3EAmoyaw%20Family%20Vacation%202026%3C/text%3E%0A%3C/svg%3E" decoding="async" loading="lazy" onerror="this.onerror=null;this.src=this.dataset.fallback;" referrerpolicy="no-referrer" src="https://source.unsplash.com/900x650/?zoo,lion"/></div>
+<div class="body">
+<span class="time">8:30 AM</span>
+<h3><a href="https://www.lpzoo.org/" rel="noopener" target="_blank">Lincoln Park Zoo</a></h3>
+<p class="addr"><a href="https://maps.google.com/?cid=666757075170399451" rel="noopener" target="_blank">📍 2001 N Clark St, Lincoln Park</a></p>
+<p class="desc">Free zoo visit. Go early while it is cooler and the animals are more active.</p>
+<div class="meta"><span class="badge free">FREE ADMISSION</span><span class="badge">~2 hrs</span><span class="badge">Opens 8 AM</span></div>
+</div>
+</div>
+</div>
+<p class="commute">10 min drive to brunch.</p>
+<div class="stop">
+<div class="card">
+<div class="photo"><img alt="Brunch plates at Batter &amp; Berries" data-fallback="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22900%22%20height%3D%22650%22%20viewBox%3D%220%200%20900%20650%22%20role%3D%22img%22%20aria-label%3D%22Batter%20%26amp%3B%20Berries%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%237A4D00%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.58%22%20stop-color%3D%22%23F5B841%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23FBF4E8%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22sun%22%20cx%3D%2275%25%22%20cy%3D%2218%25%22%20r%3D%2245%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220.55%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%20%20%3Cfilter%20id%3D%22shadow%22%20x%3D%22-20%25%22%20y%3D%22-20%25%22%20width%3D%22140%25%22%20height%3D%22140%25%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%220%22%20dy%3D%2210%22%20stdDeviation%3D%2214%22%20flood-color%3D%22%23000000%22%20flood-opacity%3D%220.22%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23g%29%22/%3E%0A%20%20%3Crect%20width%3D%22900%22%20height%3D%22650%22%20fill%3D%22url%28%23sun%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20470%20C150%20420%20260%20525%20420%20470%20S690%20375%20900%20455%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20535%20C170%20490%20285%20585%20465%20525%20S725%20455%20900%20520%20L900%20650%20L0%20650%20Z%22%20fill%3D%22%23000000%22%20opacity%3D%220.14%22/%3E%0A%20%20%3Ccircle%20cx%3D%22720%22%20cy%3D%22125%22%20r%3D%2290%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.18%22/%3E%0A%20%20%3Cg%20filter%3D%22url%28%23shadow%29%22%3E%0A%20%20%20%20%3Crect%20x%3D%2286%22%20y%3D%22355%22%20width%3D%22728%22%20height%3D%22170%22%20rx%3D%2228%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.94%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22165%22%20text-anchor%3D%22middle%22%20font-size%3D%2296%22%20font-family%3D%22Arial%2C%20sans-serif%22%3E%F0%9F%A7%87%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22423%22%20text-anchor%3D%22middle%22%20font-size%3D%2244%22%20font-family%3D%22Georgia%2C%20serif%22%20font-weight%3D%22700%22%20fill%3D%22%23122A38%22%3EBatter%20%26amp%3B%20Berries%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22470%22%20text-anchor%3D%22middle%22%20font-size%3D%2224%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%2337505F%22%3EFarewell%20brunch%3C/text%3E%0A%20%20%3Ctext%20x%3D%22450%22%20y%3D%22558%22%20text-anchor%3D%22middle%22%20font-size%3D%2218%22%20font-family%3D%22Arial%2C%20sans-serif%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.88%22%3EAmoyaw%20Family%20Vacation%202026%3C/text%3E%0A%3C/svg%3E" decoding="async" loading="lazy" onerror="this.onerror=null;this.src=this.dataset.fallback;" referrerpolicy="no-referrer" src="https://source.unsplash.com/900x650/?brunch,chicken-waffles"/></div>
+<div class="body">
+<span class="time">11:00 AM</span>
+<h3><a href="https://www.batterandberries.com/" rel="noopener" target="_blank">Farewell brunch · Batter &amp; Berries</a></h3>
+<p class="addr"><a href="https://maps.google.com/?cid=14082651548107896700" rel="noopener" target="_blank">📍 2748 N Lincoln Ave</a></p>
+<p class="desc">Brunch before leaving Chicago. Savory options include catfish, chicken &amp; waffles, and omelettes.</p>
+<div class="meta"><span class="badge paid">~$20–25/person</span><span class="badge">Open 9 AM–2 PM Thu</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= BUDGET ================= -->
+<div class="wrap" id="budget">
+<div class="panel">
+<h2>The budget check</h2>
+<p class="lead">Main rule: activities stay under $40 per person. Most stops are free.</p>
+<table>
+<thead><tr><th>Activity</th><th>Per person</th><th>Family of 5</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>360 CHICAGO Observation Deck</td><td class="num">—</td><td class="num">—</td><td class="ok">Already purchased ✓</td></tr>
+<tr><td>Wendella 45-min Architecture Cruise</td><td class="num">$28</td><td class="num">$140</td><td class="ok">Under $40 ✓</td></tr>
+<tr><td>Millennium Park · Bean · Maggie Daley · Buckingham Fountain</td><td class="num">$0</td><td class="num">$0</td><td class="ok">Free ✓</td></tr>
+<tr><td>Chicago Riverwalk + Magnificent Mile</td><td class="num">$0</td><td class="num">$0</td><td class="ok">Free ✓</td></tr>
+<tr><td>North Avenue Beach</td><td class="num">$0</td><td class="num">$0</td><td class="ok">Free ✓</td></tr>
+<tr><td>Navy Pier Wednesday Fireworks</td><td class="num">$0</td><td class="num">$0</td><td class="ok">Free ✓</td></tr>
+<tr><td>Lincoln Park Zoo</td><td class="num">$0</td><td class="num">$0</td><td class="ok">Free ✓</td></tr>
+<tr><td>Parking (SpotHero, ~3 downtown days)</td><td class="num">—</td><td class="num">~$50–75 total</td><td>Pre-book to save</td></tr>
+<tr><td>Meals (7 restaurant meals)</td><td class="num">~$15–40 each</td><td class="num">~$525–750 total</td><td>Estimate only</td></tr>
+<tr class="total"><td>Activities total</td><td class="num">$28</td><td class="num">$140</td><td class="ok">Way under budget</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- ================= TIPS ================= -->
+<div class="wrap" id="tips" style="padding-bottom:30px">
+<h2 style="margin:26px 0 4px">Good-to-knows</h2>
+<div class="tips"><div class="tip"><h4>Parking</h4><p>Use SpotHero the night before for downtown parking. Park once and walk when possible.</p></div><div class="tip"><h4>Cruise tickets</h4><p>Book the Wendella 4:00 PM cruise ahead of time. Arrive about 30 minutes early.</p></div><div class="tip"><h4>Beach day</h4><p>Bring sunscreen, towels, water, and shade. Freeze a few water bottles overnight.</p></div><div class="tip"><h4>Fireworks</h4><p>For easier parking, watch from Milton Lee Olive Park or near Ohio Street Beach instead of parking at Navy Pier.</p></div></div>
+</div>
+<footer>
+<p class="fam">Amoyaw Family Chicago Trip</p>
+<p>July 13–16, 2026 · Double-check hours, parking, and tickets before you go.</p>
+</footer>
+<script>
+  window.addEventListener('load', () => {
+    document.querySelectorAll('img[data-fallback]').forEach((img) => {
+      if (!img.complete || img.naturalWidth === 0) {
+        img.src = img.dataset.fallback;
+      }
+    });
+  });
+</script></body>
+</html>
